@@ -1,22 +1,20 @@
-#include<iostream>
+#include <bits/stdc++.h>
 using namespace std;
- char a[3500][3500];
+char p[3500][3500];
+int main(){
+  ios::sync_with_stdio(0); cin.tie(0);
+  int n;cin>>n;
+  for(int i=1;i<=n;i++){
+    for(int j=1;j<=n;j++){
+     if(n-i+1<=j){
+       p[i][j]='*';
+     }
 
-int main() {
-    ios::sync_with_stdio(0); cin.tie(0);
-     int n;
-    cin >> n;
-    for(int i = 0; i <n; i++) {
-        for(int j = 0; j < n; j++) {
-            if(j+i>=n-1){
-            a[i][j] = '*';
-            cout << a[i][j];
-            }
-            else{
-            a[i][j] = '-';
-            cout << a[i][j];
-            }
+      else{
+        p[i][j]='-';
+      }
+      cout<<p[i][j];
     }
-    cout<<"\n";
-    }
+    cout<<'\n';
+  }
 }
