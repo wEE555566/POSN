@@ -1,0 +1,58 @@
+  #include<bits/stdc++.h>;
+  using namespace std;
+  int p[66000];
+  vector<int> s;
+  int main(){
+    int N=66000;
+    p[1];1;
+    p[0]=1;
+    for(int i=2;i<N;i++){
+      if(p[i]==0){
+        s.push_back(i);
+        for(int j=2*i;j<N;j+=i){
+          p[j]=1;
+        }
+      }
+    }
+    int n;
+    while(cin>>n){
+      int x=0;
+      if(n==0){
+        break;
+      }
+      int k=0;
+      cout<<n<<" =";
+      if(n<0){
+        cout<<" -1";
+        k++;
+      }
+      n=abs(n);
+      for(auto i:s){
+        if(i*i>n){
+          break;
+        }
+        if(n%i==0){
+          while(n%i==0){
+          n=n/i; 
+          if(k>0){
+            cout<<" x";
+          }
+            cout<<" "<<i;
+            k++;
+          }
+
+        }
+      }
+      if(n>1){
+        if(k>0){
+          cout<<" x";
+        }
+        
+        cout<<" "<<n<<"\n";
+        
+      }
+    }
+  }
+
+
+  //https://vjudge.net/contest/197330#problem/M
